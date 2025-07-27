@@ -1,5 +1,87 @@
+// Import Cormorant Garamond font for headings
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
+
+// Dark Wood & Brass Library Theme - CSS Custom Properties
+:root {
+  --wood-bg: #20160e;
+  --paper: #f4ecd8;
+  --brass: #bfa75a;
+  --wood-dark: #36281b;
+  --ink: #32261a;
+  --accent: #7f5c27;
+  --shadow: 0 2px 8px rgba(54, 40, 27, 0.18);
+  
+  // Override key Paragon variables with our theme
+  --pgn-color-primary: var(--brass);
+  --pgn-color-primary-hover: var(--accent);
+  --pgn-color-text: var(--paper);
+  --pgn-color-text-primary: var(--paper);
+  --pgn-color-border: var(--accent);
+}
+
+// Global heading font family for footer content
+.footer {
+  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'Cormorant Garamond', serif !important;
+    color: var(--paper) !important;
+  }
+}
+
 $gray-footer: #fcfcfc !default;
 
 .footer {
-  background-color: var(--pgn-color-light-100, $gray-footer);
+  background-color: var(--wood-bg);
+  color: var(--paper);
+  border-top-color: var(--accent);
+  
+  // Style footer links with brass theme
+  a {
+    color: var(--brass) !important;
+    
+    &:hover {
+      color: var(--accent) !important;
+    }
+  }
+  
+  // Style language selector and other interactive elements
+  .form-control, .form-select {
+    background-color: var(--paper);
+    color: var(--ink);
+    border-color: var(--accent);
+    
+    &:focus {
+      border-color: var(--brass);
+      box-shadow: 0 0 0 0.2rem rgba(191, 167, 90, 0.25);
+    }
+  }
+  
+  // Button styling for footer
+  .btn {
+    &:not(.btn-danger):not(.btn-warning):not(.btn-success):not(.btn-info) {
+      background-color: var(--brass);
+      border-color: var(--brass);
+      color: var(--ink);
+      box-shadow: var(--shadow);
+      
+      &:hover, &:focus, &:active {
+        background-color: var(--accent);
+        border-color: var(--accent);
+        color: var(--paper);
+      }
+    }
+    
+    &.btn-link {
+      background-color: transparent !important;
+      border-color: transparent !important;
+      color: var(--brass) !important;
+      box-shadow: none !important;
+      
+      &:hover, &:focus, &:active {
+        background-color: transparent !important;
+        border-color: transparent !important;
+        color: var(--accent) !important;
+        text-decoration: underline !important;
+      }
+    }
+  }
 }
